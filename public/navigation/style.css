@@ -1,0 +1,154 @@
+@font-face {
+  font-family: poppins;
+  src: url(Poppins/Poppins-Light.ttf);
+}
+
+* {
+  font-family:poppins, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --clr: #222327;
+}
+
+body {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height: 100vh;
+  background: var(--clr);
+}
+
+.navigation {
+  background: white;
+  width: 400px;
+  height:70px;
+  display: flex;
+  /* atas bawah */
+  align-items:center;
+   /*kanan kiri  */
+  justify-content:center;
+  border-radius: 10px;
+}
+
+.navigation ul {
+  position: relative;
+  display: flex;
+  list-style: none;
+  width: 350px;
+}
+
+.navigation ul li {
+  /* sebelumnya ukurannya auto */
+width: 70px;
+height: 70px;
+  z-index: 1;
+}
+
+.navigation ul li a {
+  position: relative;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  /* karena flex direct sehingga align seperti justify */
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+
+.navigation ul li a .icon {
+  /* display: block; */
+  line-height: 75px;
+  font-size: 1.5em;
+  text-align: center;
+  /* setiap perubahan akan ada transisi animasi 0.5 detik */
+  transition: 0.5s;
+  color: var(--clr);
+}
+
+.navigation ul li.active a .icon {
+  /* jika tidak hover maka akan kembali seperti semula */
+  transform: translateY(-35px);
+}
+
+.navigation ul li a .text {
+  position: absolute;
+  color: var(--clr);
+  font-weight: 400;
+  font-size: 0.75em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.navigation ul li.active a .text {
+  opacity: 1;
+  transform: translateY(10px);
+}
+
+.indicator{
+  position: absolute;
+  top: -50%;
+  background: #29fd53;
+  width: 70px;
+  height: 70px;
+  border-radius:50%;
+  border: 6px solid var(--clr);
+  transition: 0.5s;
+}
+
+.indicator::before{
+content: '';
+position: absolute;
+background: transparent;
+width: 20px;
+height: 20px;
+top: 50%;
+left: -22px;
+border-top-right-radius: 20px;
+box-shadow: 0px -10px 0 0 var(--clr);
+}
+
+.indicator::after{
+  content: '';
+  position: absolute;
+  background: transparent;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  right: -22px;
+  border-top-left-radius: 20px;
+  box-shadow: 0px -10px 0 0 var(--clr);
+  }
+
+  .navigation ul li:nth-child(1).active ~ .indicator {
+    /* transform: translateX((70px * 0)); */
+    transform: translateX(calc(70px * 0));
+
+  }
+
+  .navigation ul li:nth-child(2).active ~ .indicator {
+    /* transform: translateX((70px * 1)); */
+    transform: translateX(calc(70px * 1));
+
+  }
+
+  .navigation ul li:nth-child(3).active ~ .indicator {
+    /* transform: translateX((70px * 2)); */
+    transform: translateX(calc(70px * 2));
+  }
+
+  .navigation ul li:nth-child(4).active ~ .indicator {
+    /* transform: translateX((70px * 3)); */
+    transform: translateX(calc(70px * 3));
+  }
+
+  .navigation ul li:nth-child(5).active ~ .indicator {
+    /* transform: translateX((70px * 4)); */
+    transform: translateX(calc(70px * 4));
+  }
