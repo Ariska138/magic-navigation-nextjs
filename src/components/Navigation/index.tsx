@@ -6,8 +6,6 @@ import {
   SettingsOutline,
 } from 'react-ionicons';
 
-import './style.module.scss';
-
 export default function Navigation() {
   return (
     <>
